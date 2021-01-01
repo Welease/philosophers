@@ -30,3 +30,13 @@ long long			ft_atoll(char *str)
 		return (-1);
 	return (res);
 }
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	len;
+
+	len = 0;
+	while (*str++)
+		len++;
+	return (len);
+}

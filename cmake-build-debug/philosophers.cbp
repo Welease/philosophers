@@ -83,6 +83,9 @@
 		<Unit filename="/Users/welease/projects/philosophers/main.c">
 			<Option target="philosophers"/>
 		</Unit>
+		<Unit filename="/Users/welease/projects/philosophers/parsing.c">
+			<Option target="philosophers"/>
+		</Unit>
 		<Unit filename="/Users/welease/projects/philosophers/philosophers.h">
 			<Option target="philosophers"/>
 		</Unit>

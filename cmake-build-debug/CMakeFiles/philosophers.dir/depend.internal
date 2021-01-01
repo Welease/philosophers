@@ -5,6 +5,10 @@ CMakeFiles/philosophers.dir/main.c.o
  /Users/welease/projects/philosophers/main.c
  /Users/welease/projects/philosophers/philosophers.h
  /Users/welease/projects/philosophers/utils.h
+CMakeFiles/philosophers.dir/parsing.c.o
+ /Users/welease/projects/philosophers/parsing.c
+ /Users/welease/projects/philosophers/philosophers.h
+ /Users/welease/projects/philosophers/utils.h
 CMakeFiles/philosophers.dir/utils.c.o
  /Users/welease/projects/philosophers/utils.c
  /Users/welease/projects/philosophers/utils.h
