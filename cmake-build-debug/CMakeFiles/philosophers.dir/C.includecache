@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/welease/projects/philosophers/utils.c
+utils.h
+/Users/welease/projects/philosophers/utils.h
+time.h
+-
+
+/Users/welease/projects/philosophers/utils.h
+
