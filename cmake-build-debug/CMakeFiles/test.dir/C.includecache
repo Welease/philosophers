@@ -6,29 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/welease/projects/philosophers/philosophers.h
+/Users/welease/projects/philosophers/test.c
 stdio.h
 -
-stdlib.h
--
-unistd.h
--
-pthread.h
--
-sys/time.h
--
 utils.h
 /Users/welease/projects/philosophers/utils.h
-limits.h
--
-
-/Users/welease/projects/philosophers/utils.c
-utils.h
-/Users/welease/projects/philosophers/utils.h
-philosophers.h
-/Users/welease/projects/philosophers/philosophers.h
-time.h
--
 
 /Users/welease/projects/philosophers/utils.h
 stdlib.h

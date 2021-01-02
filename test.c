@@ -9,7 +9,7 @@ int main()
 		write(1, "\n", 1);
 	}*/
 	write(1, "gds\n", 4);
-	suseconds_t t = 10000000;
+	suseconds_t t = 2000000;
 	my_usleep(t);
 	write(1, "sdf\n", 4);
 }

@@ -70,14 +70,14 @@ void thinking(t_philo *philo)
 void sleeping(t_philo *philo)
 {
 	print_message(philo,  " is sleeping\n");
-	usleep(g_t_to_sleep * 1000);
+	my_usleep(g_t_to_sleep * 1000);
 }
 
 void eating(t_philo *philo)
 {
 	try_to_take_forks(philo);
 	print_message(philo, " is eating\n");
-	usleep(g_t_to_eat * 1000);
+	my_usleep(g_t_to_eat * 1000);
 	put_forks(philo);
 }
 

@@ -55,21 +55,24 @@ void    ft_putnbr_fd(time_t n, int fd)
 
 void my_usleep(suseconds_t time)
 {
-	suseconds_t t;
 	time_struct tmp1;
 	time_struct tmp2;
 	gettimeofday(&tmp1, NULL);
-	gettimeofday(&tmp2, NULL);
 	int i;
-	t = time;
 	i = 0;
-	while (time  - 1000000 > 0)
+	while (time  - 1000000 >= 0)
 	{
 		i++;
 		time = time - 1000000;
 	}
-	while (tmp2.tv_sec <= tmp1.tv_sec + i && tmp2.tv_usec <= tmp1.tv_usec + time)
+//	printf("%d %d\n", time, i);
+	gettimeofday(&tmp2, NULL);
+//	printf("%lu\n", tmp2.tv_sec - tmp1.tv_sec);
+//	printf("%d\n", tmp2.tv_usec - tmp1.tv_usec);
+	while (tmp2.tv_sec - tmp1.tv_sec <= i)
 	{
 		gettimeofday(&tmp2, NULL);
+		if (tmp2.tv_sec - tmp1.tv_sec == i && tmp2.tv_usec - tmp1.tv_usec >= 0)
+			break;
 	}
 }
