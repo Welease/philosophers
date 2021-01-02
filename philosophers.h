@@ -6,33 +6,31 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include "utils.h"
-#include <limits.h>
+#include <limits.h> //TODO putnbr sinxronization selfmade usleep
 int g_ph_count;
 time_t g_t_to_die;
 time_t g_t_to_eat;
 time_t g_t_to_sleep;
 int g_num_of_t_to_eat;
-pthread_t eating_thread;
-pthread_t sleeping_thread;
-pthread_t thinking_thread;
-int *g_forks_mass; //TODO make mutex's mass
+int g_start_flag;
+pthread_mutex_t *g_forks_mass;
 struct timeval g_tv;
-pthread_mutex_t eat_mutex;
-
+pthread_mutex_t g_print_mutex;
 
 typedef struct timeval time_struct;
 typedef struct philo
 {
 	int num_of_philo;
-	int l_fork;
-	int r_fork;
+	pthread_mutex_t *l_fork;
+	pthread_mutex_t *r_fork;
 	time_t life_time;
-	int eating_flag;
-	int sleeping_flag;
-	int thinking_flag;
 	pthread_t philo_thread;
 }			t_philo;
 
 int pars_argv(char **argv, int flag);
-void *eating(t_philo *philo);
+void eating(t_philo *philo);
+int init_threads(t_philo *philo_mass);
+int start(char **argv, int flag);
+void *simulation_start(t_philo *philo);
+
 #endif

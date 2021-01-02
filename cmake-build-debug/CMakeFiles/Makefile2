@@ -55,10 +55,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/90D70A50-406C-41F1-B41C-12BFD0DEE206/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/D0A1D159-B3CC-4888-B6F5-B3F6EC2E4C09/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/90D70A50-406C-41F1-B41C-12BFD0DEE206/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/D0A1D159-B3CC-4888-B6F5-B3F6EC2E4C09/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -73,6 +73,7 @@ CMAKE_BINARY_DIR = /Users/welease/projects/philosophers/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/test.dir/all
 all: CMakeFiles/philosophers.dir/all
 
 .PHONY : all
@@ -83,9 +84,37 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/test.dir/clean
 clean: CMakeFiles/philosophers.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test.dir
+
+# All Build rule for target.
+CMakeFiles/test.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles --progress-num=6,7,8 "Built target test"
+.PHONY : CMakeFiles/test.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/test.dir/rule
+
+# Convenience name for target.
+test: CMakeFiles/test.dir/rule
+
+.PHONY : test
+
+# clean rule for target.
+CMakeFiles/test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
+.PHONY : CMakeFiles/test.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/philosophers.dir
@@ -94,12 +123,12 @@ clean: CMakeFiles/philosophers.dir/clean
 CMakeFiles/philosophers.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target philosophers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target philosophers"
 .PHONY : CMakeFiles/philosophers.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/philosophers.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/philosophers.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/philosophers.dir/rule

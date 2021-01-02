@@ -59,10 +59,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/90D70A50-406C-41F1-B41C-12BFD0DEE206/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/D0A1D159-B3CC-4888-B6F5-B3F6EC2E4C09/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/90D70A50-406C-41F1-B41C-12BFD0DEE206/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/D0A1D159-B3CC-4888-B6F5-B3F6EC2E4C09/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Users/welease/projects/philosophers/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/90D70A50-406C-41F1-B41C-12BFD0DEE206/d/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/D0A1D159-B3CC-4888-B6F5-B3F6EC2E4C09/d/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/90D70A50-406C-41F1-B41C-12BFD0DEE206/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/D0A1D159-B3CC-4888-B6F5-B3F6EC2E4C09/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -131,6 +131,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test
+
+# Build rule for target.
+test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
+.PHONY : test
+
+# fast build rule for target.
+test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+.PHONY : test/fast
+
+#=============================================================================
 # Target rules for targets named philosophers
 
 # Build rule for target.
@@ -142,6 +155,33 @@ philosophers: cmake_check_build_system
 philosophers/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/build
 .PHONY : philosophers/fast
+
+initing.o: initing.c.o
+
+.PHONY : initing.o
+
+# target to build an object file
+initing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/initing.c.o
+.PHONY : initing.c.o
+
+initing.i: initing.c.i
+
+.PHONY : initing.i
+
+# target to preprocess a source file
+initing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/initing.c.i
+.PHONY : initing.c.i
+
+initing.s: initing.c.s
+
+.PHONY : initing.s
+
+# target to generate assembly for a file
+initing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/initing.c.s
+.PHONY : initing.c.s
 
 main.o: main.c.o
 
@@ -197,12 +237,40 @@ parsing.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/parsing.c.s
 .PHONY : parsing.c.s
 
+test.o: test.c.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.o
+.PHONY : test.c.o
+
+test.i: test.c.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.i
+.PHONY : test.c.i
+
+test.s: test.c.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.s
+.PHONY : test.c.s
+
 utils.o: utils.c.o
 
 .PHONY : utils.o
 
 # target to build an object file
 utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/utils.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/utils.c.o
 .PHONY : utils.c.o
 
@@ -212,6 +280,7 @@ utils.i: utils.c.i
 
 # target to preprocess a source file
 utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/utils.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/utils.c.i
 .PHONY : utils.c.i
 
@@ -221,6 +290,7 @@ utils.s: utils.c.s
 
 # target to generate assembly for a file
 utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/utils.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/utils.c.s
 .PHONY : utils.c.s
 
@@ -233,12 +303,19 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... philosophers"
+	@echo "... test"
+	@echo "... initing.o"
+	@echo "... initing.i"
+	@echo "... initing.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... parsing.o"
 	@echo "... parsing.i"
 	@echo "... parsing.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 	@echo "... utils.o"
 	@echo "... utils.i"
 	@echo "... utils.s"

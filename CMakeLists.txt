@@ -7,4 +7,9 @@ include_directories(.)
 
 add_executable(philosophers
         main.c
-        philosophers.h utils.c utils.h parsing.c)
+        philosophers.h utils.c utils.h parsing.c initing.c)
+
+add_executable(test
+        test.c
+        utils.c
+        utils.h)

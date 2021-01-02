@@ -1,5 +1,7 @@
 #include "utils.h"
+#include "philosophers.h"
 #include <time.h>
+
 static int	checkspace(char *str)
 {
 	if (*str == ' ' ||
@@ -39,4 +41,35 @@ size_t	ft_strlen(const char *str)
 	while (*str++)
 		len++;
 	return (len);
+}
+
+void    ft_putnbr_fd(time_t n, int fd)
+{
+	unsigned char tmp;
+
+	if (n / 10)
+		ft_putnbr_fd(n / 10, fd);
+	tmp = (unsigned char)(n % 10) + '0';
+	write(fd, &tmp, 1);
+}
+
+void my_usleep(suseconds_t time)
+{
+	suseconds_t t;
+	time_struct tmp1;
+	time_struct tmp2;
+	gettimeofday(&tmp1, NULL);
+	gettimeofday(&tmp2, NULL);
+	int i;
+	t = time;
+	i = 0;
+	while (time  - 1000000 > 0)
+	{
+		i++;
+		time = time - 1000000;
+	}
+	while (tmp2.tv_sec <= tmp1.tv_sec + i && tmp2.tv_usec <= tmp1.tv_usec + time)
+	{
+		gettimeofday(&tmp2, NULL);
+	}
 }
