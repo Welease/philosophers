@@ -29,17 +29,19 @@ void fill_mass_of_philo(t_philo *philo_mass)
 	}
 }
 
-void kill_all(t_philo *mass)
+void *kill_all(t_philo *mass)
 {
 	int i;
 
 	i = 0;
-	pthread_mutex_destroy(&g_print_mutex);
 	while (i < g_ph_count)
 		pthread_mutex_destroy(&(g_forks_mass[i++]));
 	free(g_forks_mass);
 	free(mass);
-	exit(0);
+	pthread_mutex_destroy(&g_print_mutex);
+	pthread_mutex_destroy(&g_lifecheck_mutex);
+	pthread_mutex_destroy(&g_tmp_mutex);
+	return (NULL);
 }
 
 int check_all_eating(t_philo *mass)
@@ -51,8 +53,10 @@ int check_all_eating(t_philo *mass)
 	ret = 0;
 	while (i < g_ph_count)
 	{
-		if (mass[i].eating_counter == g_num_of_t_to_eat)
+		pthread_mutex_lock(&g_tmp_mutex);
+		if (mass[i].eating_counter >= g_num_of_t_to_eat)
 			ret++;
+		pthread_mutex_unlock(&g_tmp_mutex);
 		i++;
 	}
 	if (ret == g_ph_count)
@@ -69,13 +73,15 @@ void *check_deading(t_philo *mass)
 		i = 0;
 		while (i < g_ph_count)
 		{
+			pthread_mutex_lock(&g_lifecheck_mutex);
 			mass[i].life_time -= 1000;
+			pthread_mutex_unlock(&g_lifecheck_mutex);
 			if (check_all_eating(mass))
-				kill_all(mass);
-			if ((mass[i].life_time <= 0))
+				return (kill_all(mass));
+			if ((mass[i].life_time < 0))
 			{
 				philo_death(mass + i);
-				kill_all(mass);
+				return (kill_all(mass));
 			}
 			i++;
 		}
@@ -98,13 +104,14 @@ int init_threads(t_philo *philo_mass)
 	if (pthread_create(&g_death_thread, NULL, (void * (*)(void *))check_deading, ((void *)(philo_mass))))
 		return (-1);
 	g_start_flag = 1;
-	while (1);
+	pthread_join(g_death_thread, NULL);
 	return (0);
 }
 
 int start(char **argv, int flag)
 {
 	t_philo *philo_mass;
+
 	if (pars_argv(argv, flag) == -1)
 		return (-1);
 	if (!(g_forks_mass = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t) * g_ph_count)))

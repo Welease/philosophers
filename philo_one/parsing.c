@@ -18,7 +18,7 @@ int pars_argv(char **argv, int flag)
 		i == 4 ? g_t_to_sleep = (time_t)tmp : 0;
 		if (i == 4 && !flag)
 		{
-			g_num_of_t_to_eat = -1;
+			g_num_of_t_to_eat = INT_MAX;
 			break;
 		}
 		if (i == 5 && (tmp > INT_MAX || (g_num_of_t_to_eat = (int)tmp) == 0))

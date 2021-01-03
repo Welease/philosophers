@@ -27,8 +27,6 @@ void print_message(t_philo *philo, char *message)
 	ft_putnbr_fd((get_time()) / 1000, 1);
 	write(1, "    ", 6);
 	ft_putnbr_fd((time_t)(philo->num_of_philo) + 1, 1);
-	//write(1, "      ", 4);
-	//ft_putnbr_fd(philo->life_time / 1000, 1);
 	write(1, message, ft_strlen(message));
 	pthread_mutex_unlock(&g_print_mutex);
 }
@@ -89,10 +87,13 @@ void eating(t_philo *philo)
 {
 	try_to_take_forks(philo);
 	print_message(philo, " is eating\n");
+	pthread_mutex_lock(&g_lifecheck_mutex);
 	philo->life_time = g_t_to_die * 1000;
+	pthread_mutex_unlock(&g_lifecheck_mutex);
 	my_usleep(g_t_to_eat * 1000);
-	philo->has_eated = 1;
+	pthread_mutex_lock(&g_tmp_mutex);
 	philo->eating_counter++;
+	pthread_mutex_unlock(&g_tmp_mutex);
 	put_forks(philo);
 }
 
@@ -100,15 +101,13 @@ void *simulation_start(t_philo *philo)
 {
 	while (!g_start_flag)
 		;
+	pthread_detach(philo->philo_thread);
 	while (1)
 	{
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);
-		if (philo->eating_counter == g_num_of_t_to_eat)
-			break;
 	}
-	while (1);
 	return (NULL);
 }
 
@@ -116,6 +115,8 @@ void *simulation_start(t_philo *philo)
 int main(int argc, char **argv)
 {
 	pthread_mutex_init(&g_print_mutex, NULL);
+	pthread_mutex_init(&g_tmp_mutex, NULL);
+	pthread_mutex_init(&g_lifecheck_mutex, NULL);
 	if (gettimeofday(&g_tv, NULL) == -1)
 	{
 		write(1, "some problem with gettimeofday func\n", 37);
