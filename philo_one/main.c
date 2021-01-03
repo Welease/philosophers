@@ -1,13 +1,12 @@
 #include "philosophers.h"
 
-void print_message(t_philo *philo, char *message)
+time_t get_time()
 {
 	time_t tmp1;
 	suseconds_t tmp;
-	pthread_mutex_lock(&g_print_mutex);
 	time_struct tv;
 	if (gettimeofday(&tv, NULL) == -1)
-		return ;
+		return NULL;
 	tmp1 = tv.tv_sec - g_tv.tv_sec;
 	tmp = tv.tv_usec - g_tv.tv_usec;
 	if (tmp < 0)
@@ -19,9 +18,17 @@ void print_message(t_philo *philo, char *message)
 	{
 		tmp += tmp1 * 1000000;
 	}
-	ft_putnbr_fd((tmp) / 1000, 1);
+	return (tmp);
+}
+
+void print_message(t_philo *philo, char *message)
+{
+	pthread_mutex_lock(&g_print_mutex);
+	ft_putnbr_fd((get_time()) / 1000, 1);
 	write(1, "    ", 6);
 	ft_putnbr_fd((time_t)(philo->num_of_philo) + 1, 1);
+	//write(1, "      ", 4);
+	//ft_putnbr_fd(philo->life_time / 1000, 1);
 	write(1, message, ft_strlen(message));
 	pthread_mutex_unlock(&g_print_mutex);
 }
@@ -62,6 +69,11 @@ void put_forks(t_philo *philo)
 	}
 }
 
+void philo_death(t_philo *philo)
+{
+	print_message(philo, " is dead\n");
+}
+
 void thinking(t_philo *philo)
 {
 	print_message(philo, " is thinking\n");
@@ -77,7 +89,10 @@ void eating(t_philo *philo)
 {
 	try_to_take_forks(philo);
 	print_message(philo, " is eating\n");
+	philo->life_time = g_t_to_die * 1000;
 	my_usleep(g_t_to_eat * 1000);
+	philo->has_eated = 1;
+	philo->eating_counter++;
 	put_forks(philo);
 }
 
@@ -90,7 +105,10 @@ void *simulation_start(t_philo *philo)
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);
+		if (philo->eating_counter == g_num_of_t_to_eat)
+			break;
 	}
+	while (1);
 	return (NULL);
 }
 

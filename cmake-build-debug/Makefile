@@ -59,10 +59,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/4268AC8F-062D-4E3D-A8B2-2240AE200C70/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/247BAC7B-F699-4244-A85F-592DF8E8F13B/d/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/4268AC8F-062D-4E3D-A8B2-2240AE200C70/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/247BAC7B-F699-4244-A85F-592DF8E8F13B/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Users/welease/projects/philosophers/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/4268AC8F-062D-4E3D-A8B2-2240AE200C70/d/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/247BAC7B-F699-4244-A85F-592DF8E8F13B/d/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/4268AC8F-062D-4E3D-A8B2-2240AE200C70/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/247BAC7B-F699-4244-A85F-592DF8E8F13B/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -131,17 +131,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named philosophers2
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+philosophers2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 philosophers2
+.PHONY : philosophers2
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+philosophers2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/build
+.PHONY : philosophers2/fast
 
 #=============================================================================
 # Target rules for targets named philosophers
@@ -156,143 +156,221 @@ philosophers/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/build
 .PHONY : philosophers/fast
 
-initing.o: initing.c.o
+philo_one/initing.o: philo_one/initing.c.o
 
-.PHONY : initing.o
-
-# target to build an object file
-initing.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/initing.c.o
-.PHONY : initing.c.o
-
-initing.i: initing.c.i
-
-.PHONY : initing.i
-
-# target to preprocess a source file
-initing.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/initing.c.i
-.PHONY : initing.c.i
-
-initing.s: initing.c.s
-
-.PHONY : initing.s
-
-# target to generate assembly for a file
-initing.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/initing.c.s
-.PHONY : initing.c.s
-
-main.o: main.c.o
-
-.PHONY : main.o
+.PHONY : philo_one/initing.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/main.c.o
-.PHONY : main.c.o
+philo_one/initing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/initing.c.o
+.PHONY : philo_one/initing.c.o
 
-main.i: main.c.i
+philo_one/initing.i: philo_one/initing.c.i
 
-.PHONY : main.i
+.PHONY : philo_one/initing.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/main.c.i
-.PHONY : main.c.i
+philo_one/initing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/initing.c.i
+.PHONY : philo_one/initing.c.i
 
-main.s: main.c.s
+philo_one/initing.s: philo_one/initing.c.s
 
-.PHONY : main.s
+.PHONY : philo_one/initing.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/main.c.s
-.PHONY : main.c.s
+philo_one/initing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/initing.c.s
+.PHONY : philo_one/initing.c.s
 
-parsing.o: parsing.c.o
+philo_one/main.o: philo_one/main.c.o
 
-.PHONY : parsing.o
+.PHONY : philo_one/main.o
 
 # target to build an object file
-parsing.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/parsing.c.o
-.PHONY : parsing.c.o
+philo_one/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/main.c.o
+.PHONY : philo_one/main.c.o
 
-parsing.i: parsing.c.i
+philo_one/main.i: philo_one/main.c.i
 
-.PHONY : parsing.i
+.PHONY : philo_one/main.i
 
 # target to preprocess a source file
-parsing.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/parsing.c.i
-.PHONY : parsing.c.i
+philo_one/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/main.c.i
+.PHONY : philo_one/main.c.i
 
-parsing.s: parsing.c.s
+philo_one/main.s: philo_one/main.c.s
 
-.PHONY : parsing.s
+.PHONY : philo_one/main.s
 
 # target to generate assembly for a file
-parsing.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/parsing.c.s
-.PHONY : parsing.c.s
+philo_one/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/main.c.s
+.PHONY : philo_one/main.c.s
 
-test.o: test.c.o
+philo_one/parsing.o: philo_one/parsing.c.o
 
-.PHONY : test.o
+.PHONY : philo_one/parsing.o
 
 # target to build an object file
-test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.o
-.PHONY : test.c.o
+philo_one/parsing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/parsing.c.o
+.PHONY : philo_one/parsing.c.o
 
-test.i: test.c.i
+philo_one/parsing.i: philo_one/parsing.c.i
 
-.PHONY : test.i
+.PHONY : philo_one/parsing.i
 
 # target to preprocess a source file
-test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.i
-.PHONY : test.c.i
+philo_one/parsing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/parsing.c.i
+.PHONY : philo_one/parsing.c.i
 
-test.s: test.c.s
+philo_one/parsing.s: philo_one/parsing.c.s
 
-.PHONY : test.s
+.PHONY : philo_one/parsing.s
 
 # target to generate assembly for a file
-test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.s
-.PHONY : test.c.s
+philo_one/parsing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/parsing.c.s
+.PHONY : philo_one/parsing.c.s
 
-utils.o: utils.c.o
+philo_one/utils.o: philo_one/utils.c.o
 
-.PHONY : utils.o
+.PHONY : philo_one/utils.o
 
 # target to build an object file
-utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/utils.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/utils.c.o
-.PHONY : utils.c.o
+philo_one/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils.c.o
+.PHONY : philo_one/utils.c.o
 
-utils.i: utils.c.i
+philo_one/utils.i: philo_one/utils.c.i
 
-.PHONY : utils.i
+.PHONY : philo_one/utils.i
 
 # target to preprocess a source file
-utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/utils.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/utils.c.i
-.PHONY : utils.c.i
+philo_one/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils.c.i
+.PHONY : philo_one/utils.c.i
 
-utils.s: utils.c.s
+philo_one/utils.s: philo_one/utils.c.s
 
-.PHONY : utils.s
+.PHONY : philo_one/utils.s
 
 # target to generate assembly for a file
-utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/utils.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/utils.c.s
-.PHONY : utils.c.s
+philo_one/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils.c.s
+.PHONY : philo_one/utils.c.s
+
+philo_two/initing.o: philo_two/initing.c.o
+
+.PHONY : philo_two/initing.o
+
+# target to build an object file
+philo_two/initing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/initing.c.o
+.PHONY : philo_two/initing.c.o
+
+philo_two/initing.i: philo_two/initing.c.i
+
+.PHONY : philo_two/initing.i
+
+# target to preprocess a source file
+philo_two/initing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/initing.c.i
+.PHONY : philo_two/initing.c.i
+
+philo_two/initing.s: philo_two/initing.c.s
+
+.PHONY : philo_two/initing.s
+
+# target to generate assembly for a file
+philo_two/initing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/initing.c.s
+.PHONY : philo_two/initing.c.s
+
+philo_two/main.o: philo_two/main.c.o
+
+.PHONY : philo_two/main.o
+
+# target to build an object file
+philo_two/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/main.c.o
+.PHONY : philo_two/main.c.o
+
+philo_two/main.i: philo_two/main.c.i
+
+.PHONY : philo_two/main.i
+
+# target to preprocess a source file
+philo_two/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/main.c.i
+.PHONY : philo_two/main.c.i
+
+philo_two/main.s: philo_two/main.c.s
+
+.PHONY : philo_two/main.s
+
+# target to generate assembly for a file
+philo_two/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/main.c.s
+.PHONY : philo_two/main.c.s
+
+philo_two/parsing.o: philo_two/parsing.c.o
+
+.PHONY : philo_two/parsing.o
+
+# target to build an object file
+philo_two/parsing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/parsing.c.o
+.PHONY : philo_two/parsing.c.o
+
+philo_two/parsing.i: philo_two/parsing.c.i
+
+.PHONY : philo_two/parsing.i
+
+# target to preprocess a source file
+philo_two/parsing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/parsing.c.i
+.PHONY : philo_two/parsing.c.i
+
+philo_two/parsing.s: philo_two/parsing.c.s
+
+.PHONY : philo_two/parsing.s
+
+# target to generate assembly for a file
+philo_two/parsing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/parsing.c.s
+.PHONY : philo_two/parsing.c.s
+
+philo_two/utils.o: philo_two/utils.c.o
+
+.PHONY : philo_two/utils.o
+
+# target to build an object file
+philo_two/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/utils.c.o
+.PHONY : philo_two/utils.c.o
+
+philo_two/utils.i: philo_two/utils.c.i
+
+.PHONY : philo_two/utils.i
+
+# target to preprocess a source file
+philo_two/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/utils.c.i
+.PHONY : philo_two/utils.c.i
+
+philo_two/utils.s: philo_two/utils.c.s
+
+.PHONY : philo_two/utils.s
+
+# target to generate assembly for a file
+philo_two/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers2.dir/build.make CMakeFiles/philosophers2.dir/philo_two/utils.c.s
+.PHONY : philo_two/utils.c.s
 
 # Help Target
 help:
@@ -303,22 +381,31 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... philosophers"
-	@echo "... test"
-	@echo "... initing.o"
-	@echo "... initing.i"
-	@echo "... initing.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... parsing.o"
-	@echo "... parsing.i"
-	@echo "... parsing.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
-	@echo "... utils.o"
-	@echo "... utils.i"
-	@echo "... utils.s"
+	@echo "... philosophers2"
+	@echo "... philo_one/initing.o"
+	@echo "... philo_one/initing.i"
+	@echo "... philo_one/initing.s"
+	@echo "... philo_one/main.o"
+	@echo "... philo_one/main.i"
+	@echo "... philo_one/main.s"
+	@echo "... philo_one/parsing.o"
+	@echo "... philo_one/parsing.i"
+	@echo "... philo_one/parsing.s"
+	@echo "... philo_one/utils.o"
+	@echo "... philo_one/utils.i"
+	@echo "... philo_one/utils.s"
+	@echo "... philo_two/initing.o"
+	@echo "... philo_two/initing.i"
+	@echo "... philo_two/initing.s"
+	@echo "... philo_two/main.o"
+	@echo "... philo_two/main.i"
+	@echo "... philo_two/main.s"
+	@echo "... philo_two/parsing.o"
+	@echo "... philo_two/parsing.i"
+	@echo "... philo_two/parsing.s"
+	@echo "... philo_two/utils.o"
+	@echo "... philo_two/utils.i"
+	@echo "... philo_two/utils.s"
 .PHONY : help
 
 

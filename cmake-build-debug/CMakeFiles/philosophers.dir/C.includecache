@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/welease/projects/philosophers/philosophers.h
+/Users/welease/projects/philosophers/philo_one/initing.c
+philosophers.h
+/Users/welease/projects/philosophers/philo_one/philosophers.h
+
+/Users/welease/projects/philosophers/philo_one/philosophers.h
 stdio.h
 -
 stdlib.h
@@ -18,19 +22,11 @@ pthread.h
 sys/time.h
 -
 utils.h
-/Users/welease/projects/philosophers/utils.h
+/Users/welease/projects/philosophers/philo_one/utils.h
 limits.h
 -
 
-/Users/welease/projects/philosophers/utils.c
-utils.h
-/Users/welease/projects/philosophers/utils.h
-philosophers.h
-/Users/welease/projects/philosophers/philosophers.h
-time.h
--
-
-/Users/welease/projects/philosophers/utils.h
+/Users/welease/projects/philosophers/philo_one/utils.h
 stdlib.h
 -
 unistd.h

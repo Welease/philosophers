@@ -3,13 +3,19 @@ project(philosophers C)
 
 set(CMAKE_C_STANDARD 11)
 
-include_directories(.)
+include_directories(philo_one)
 
 add_executable(philosophers
-        main.c
-        philosophers.h utils.c utils.h parsing.c initing.c)
-
-add_executable(test
-        test.c
-        utils.c
-        utils.h)
+        philo_one/initing.c
+        philo_one/main.c
+        philo_one/parsing.c
+        philo_one/philosophers.h
+        philo_one/utils.c
+        philo_one/utils.h)
+add_executable(philosophers2
+        philo_two/initing.c
+        philo_two/main.c
+        philo_two/parsing.c
+        philo_two/philosophers.h
+        philo_two/utils.c
+        philo_two/utils.h)

@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/philosophers.dir/initing.c.o"
-  "CMakeFiles/philosophers.dir/main.c.o"
-  "CMakeFiles/philosophers.dir/parsing.c.o"
-  "CMakeFiles/philosophers.dir/utils.c.o"
+  "CMakeFiles/philosophers.dir/philo_one/initing.c.o"
+  "CMakeFiles/philosophers.dir/philo_one/main.c.o"
+  "CMakeFiles/philosophers.dir/philo_one/parsing.c.o"
+  "CMakeFiles/philosophers.dir/philo_one/utils.c.o"
   "philosophers"
   "philosophers.pdb"
 )

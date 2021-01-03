@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/welease/projects/philosophers/initing.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/initing.c.o"
-  "/Users/welease/projects/philosophers/main.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/main.c.o"
-  "/Users/welease/projects/philosophers/parsing.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/parsing.c.o"
-  "/Users/welease/projects/philosophers/utils.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/utils.c.o"
+  "/Users/welease/projects/philosophers/philo_one/initing.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/initing.c.o"
+  "/Users/welease/projects/philosophers/philo_one/main.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/main.c.o"
+  "/Users/welease/projects/philosophers/philo_one/parsing.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/parsing.c.o"
+  "/Users/welease/projects/philosophers/philo_one/utils.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "../."
+  "../philo_one"
   )
 
 # Targets to which this target links.

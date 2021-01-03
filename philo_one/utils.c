@@ -57,22 +57,12 @@ void my_usleep(suseconds_t time)
 {
 	time_struct tmp1;
 	time_struct tmp2;
+
 	gettimeofday(&tmp1, NULL);
-	int i;
-	i = 0;
-	while (time  - 1000000 >= 0)
-	{
-		i++;
-		time = time - 1000000;
-	}
-//	printf("%d %d\n", time, i);
 	gettimeofday(&tmp2, NULL);
-//	printf("%lu\n", tmp2.tv_sec - tmp1.tv_sec);
-//	printf("%d\n", tmp2.tv_usec - tmp1.tv_usec);
-	while (tmp2.tv_sec - tmp1.tv_sec <= i)
+	while (tmp2.tv_sec * 1000000 + tmp2.tv_usec - tmp1.tv_sec * 1000000 - tmp1.tv_usec <= time)
 	{
+		usleep(10);
 		gettimeofday(&tmp2, NULL);
-		if (tmp2.tv_sec - tmp1.tv_sec == i && tmp2.tv_usec - tmp1.tv_usec >= 0)
-			break;
 	}
 }
