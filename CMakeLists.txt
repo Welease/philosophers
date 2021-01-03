@@ -12,6 +12,7 @@ add_executable(philosophers
         philo_one/philosophers.h
         philo_one/utils.c
         philo_one/utils.h)
+
 add_executable(philosophers2
         philo_two/initing.c
         philo_two/main.c

@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/welease/projects/philosophers/philo_two/initing.c
-philosophers.h
-/Users/welease/projects/philosophers/philo_two/philosophers.h
-
 /Users/welease/projects/philosophers/philo_two/main.c
 philosophers.h
 /Users/welease/projects/philosophers/philo_two/philosophers.h

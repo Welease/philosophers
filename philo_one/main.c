@@ -80,7 +80,7 @@ void thinking(t_philo *philo)
 void sleeping(t_philo *philo)
 {
 	print_message(philo,  " is sleeping\n");
-	my_usleep(g_t_to_sleep * 1000);
+	my_usleep(philo->input_data->t_to_sleep * 1000);
 }
 
 void eating(t_philo *philo)
@@ -88,9 +88,9 @@ void eating(t_philo *philo)
 	try_to_take_forks(philo);
 	print_message(philo, " is eating\n");
 	pthread_mutex_lock(&g_lifecheck_mutex);
-	philo->life_time = g_t_to_die * 1000;
+	philo->life_time = philo->input_data->t_to_die * 1000;
 	pthread_mutex_unlock(&g_lifecheck_mutex);
-	my_usleep(g_t_to_eat * 1000);
+	my_usleep(philo->input_data->t_to_eat * 1000);
 	pthread_mutex_lock(&g_tmp_mutex);
 	philo->eating_counter++;
 	pthread_mutex_unlock(&g_tmp_mutex);
@@ -114,6 +114,8 @@ void *simulation_start(t_philo *philo)
 
 int main(int argc, char **argv)
 {
+	t_input_data input_data;
+
 	pthread_mutex_init(&g_print_mutex, NULL);
 	pthread_mutex_init(&g_tmp_mutex, NULL);
 	pthread_mutex_init(&g_lifecheck_mutex, NULL);
@@ -127,7 +129,7 @@ int main(int argc, char **argv)
 		write(1, "Wrong count of arguments\n", 26);
 		return (0);
 	}
-	else if ((argc == 5 && start(argv, 0) == -1) || (argc == 6 && start(argv, 1) == -1))
+	else if ((argc == 5 && start(argv, 0, &input_data) == -1) || (argc == 6 && start(argv, 1, &input_data) == -1))
 	{
 		write(1, "Invalid paramaters\n", 20);
 		return (0);

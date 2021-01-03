@@ -6,7 +6,7 @@ time_t get_time()
 	suseconds_t tmp;
 	time_struct tv;
 	if (gettimeofday(&tv, NULL) == -1)
-		return 0;
+		return NULL;
 	tmp1 = tv.tv_sec - g_tv.tv_sec;
 	tmp = tv.tv_usec - g_tv.tv_usec;
 	if (tmp < 0)
@@ -41,7 +41,7 @@ int try_to_take_forks(t_philo *philo)
 	return (0);
 }
 
-void put_forks(t_philo *philo)
+void put_forks()
 {
 	sem_post(g_forks_sem);
 	sem_post(g_forks_sem);
@@ -60,42 +60,46 @@ void thinking(t_philo *philo)
 void sleeping(t_philo *philo)
 {
 	print_message(philo,  " is sleeping\n");
-	my_usleep(philo->input_data->t_to_sleep * 1000);
+	my_usleep(g_t_to_sleep * 1000);
 }
 
 void eating(t_philo *philo)
 {
 	try_to_take_forks(philo);
 	print_message(philo, " is eating\n");
-	sem_wait(g_lifecheck_mutex);
-	philo->life_time = philo->input_data->t_to_die * 1000;
-	sem_post(g_lifecheck_mutex);
-	my_usleep(philo->input_data->t_to_eat * 1000);
-	sem_wait(g_tmp_mutex);
+	philo->life_time = g_t_to_die * 1000;
+	my_usleep(g_t_to_eat * 1000);
+	put_forks();
+	philo->has_eated = 1;
 	philo->eating_counter++;
-	sem_post(g_tmp_mutex);
-	put_forks(philo);
 }
 
 void *simulation_start(t_philo *philo)
 {
 	while (!g_start_flag)
 		;
-	pthread_detach(philo->philo_thread);
 	while (1)
 	{
 		eating(philo);
 		sleeping(philo);
 		thinking(philo);
+		if (philo->eating_counter == g_num_of_t_to_eat)
+			break;
 	}
+	while (1);
 	return (NULL);
 }
 
 
 int main(int argc, char **argv)
 {
-	t_input_data input_data;
-
+	if ((g_print_sem = sem_open("/printingsem",  O_CREAT | O_TRUNC | O_RDWR, S_IRWXU, 1)) == SEM_FAILED ||
+			(g_waiter = sem_open("/waitersem",  O_CREAT | O_TRUNC | O_RDWR, S_IRWXU, 1)) == SEM_FAILED ||
+			(g_forks_sem = sem_open("/forksem",  O_CREAT | O_TRUNC | O_RDWR, S_IRWXU, g_ph_count)) == SEM_FAILED)
+	{
+		write(1, "sem error\n", 10);
+		return (0);
+	}
 	if (gettimeofday(&g_tv, NULL) == -1)
 	{
 		write(1, "some problem with gettimeofday func\n", 37);
@@ -106,7 +110,7 @@ int main(int argc, char **argv)
 		write(1, "Wrong count of arguments\n", 26);
 		return (0);
 	}
-	else if ((argc == 5 && start(argv, 0, &input_data) == -1) || (argc == 6 && start(argv, 1, &input_data) == -1))
+	else if ((argc == 5 && start(argv, 0) == -1) || (argc == 6 && start(argv, 1) == -1))
 	{
 		write(1, "Invalid paramaters\n", 20);
 		return (0);
