@@ -1,4 +1,5 @@
 /Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/edit_cache.dir
 /Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir
+/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers3.dir
 /Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir

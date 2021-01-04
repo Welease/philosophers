@@ -20,3 +20,11 @@ add_executable(philosophers2
         philo_two/philosophers.h
         philo_two/utils.c
         philo_two/utils.h)
+
+add_executable(philosophers3
+        philo_three/initing.c
+        philo_three/main.c
+        philo_three/parsing.c
+        philo_three/philosophers.h
+        philo_three/utils.c
+        philo_three/utils.h)
