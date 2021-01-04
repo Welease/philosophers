@@ -8,6 +8,8 @@ SRCS = utils.c \
 	   utils2.c  \
 	   philo_funcs.c \
 	   filling_init_data.c \
+	   killing.c \
+	   utils3.c \
 
 OBJS = $(SRCS:.c=.o)
 RM = rm -rf

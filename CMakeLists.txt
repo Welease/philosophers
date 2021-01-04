@@ -27,4 +27,4 @@ add_executable(philosophers3
         philo_three/parsing.c
         philo_three/philosophers.h
         philo_three/utils.c
-        philo_three/utils.h)
+        philo_three/utils.h philo_three/filling_init_data.c philo_three/killing.c philo_three/philo_funcs.c philo_three/utils2.c philo_three/utils3.c)

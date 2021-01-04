@@ -1,5 +1,14 @@
 /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/CF1FD2E2-0342-4896-BF3E-90F9244B2E80/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/welease/test/philosophers
 -- Configuring done
+CMake Error at CMakeLists.txt:24 (add_executable):
+  Cannot find source file:
+
+    philo_three/utils.h
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
 CMake Error at CMakeLists.txt:8 (add_executable):
   Cannot find source file:
 
@@ -7,6 +16,10 @@ CMake Error at CMakeLists.txt:8 (add_executable):
 
   Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
   .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:24 (add_executable):
+  No SOURCES given to target: philosophers3
 
 
 CMake Error at CMakeLists.txt:8 (add_executable):
