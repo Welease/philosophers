@@ -7,7 +7,9 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/welease/test/philosophers/philo_one/initing.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/initing.c.o"
   "/Users/welease/test/philosophers/philo_one/main.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/main.c.o"
   "/Users/welease/test/philosophers/philo_one/parsing.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/parsing.c.o"
+  "/Users/welease/test/philosophers/philo_one/philo_funcs.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/philo_funcs.c.o"
   "/Users/welease/test/philosophers/philo_one/utils.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/utils.c.o"
+  "/Users/welease/test/philosophers/philo_one/utils2.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers.dir/philo_one/utils2.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

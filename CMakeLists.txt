@@ -11,7 +11,7 @@ add_executable(philosophers
         philo_one/parsing.c
         philo_one/philosophers.h
         philo_one/utils.c
-        philo_one/utils.h)
+        philo_one/utils.h philo_one/philo_funcs.c philo_one/utils2.c philo_one/filling_init_data.c)
 
 add_executable(philosophers2
         philo_two/initing.c

@@ -173,6 +173,9 @@
 		<Unit filename="/Users/welease/test/philosophers/philo_one/parsing.c">
 			<Option target="philosophers"/>
 		</Unit>
+		<Unit filename="/Users/welease/test/philosophers/philo_one/philo_funcs.c">
+			<Option target="philosophers"/>
+		</Unit>
 		<Unit filename="/Users/welease/test/philosophers/philo_one/philosophers.h">
 			<Option target="philosophers"/>
 		</Unit>
@@ -180,6 +183,9 @@
 			<Option target="philosophers"/>
 		</Unit>
 		<Unit filename="/Users/welease/test/philosophers/philo_one/utils.h">
+			<Option target="philosophers"/>
+		</Unit>
+		<Unit filename="/Users/welease/test/philosophers/philo_one/utils2.c">
 			<Option target="philosophers"/>
 		</Unit>
 		<Unit filename="/Users/welease/test/philosophers/philo_three/initing.c">

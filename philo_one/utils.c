@@ -1,8 +1,18 @@
-#include "utils.h"
-#include "philosophers.h"
-#include <time.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: welease <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/04 22:30:53 by welease           #+#    #+#             */
+/*   Updated: 2021/01/04 22:32:15 by welease          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	checkspace(char *str)
+#include "philosophers.h"
+
+static int			checkspace(char *str)
 {
 	if (*str == ' ' ||
 		*str == '\t' ||
@@ -14,7 +24,7 @@ static int	checkspace(char *str)
 	return (0);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int					ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t i;
 
@@ -49,7 +59,7 @@ long long			ft_atoll(char *str)
 	return (res);
 }
 
-size_t	ft_strlen(const char *str)
+size_t				ft_strlen(const char *str)
 {
 	size_t	len;
 
@@ -59,7 +69,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-void    ft_putnbr_fd(time_t n, int fd)
+void				ft_putnbr_fd(time_t n, int fd)
 {
 	unsigned char tmp;
 
@@ -67,18 +77,4 @@ void    ft_putnbr_fd(time_t n, int fd)
 		ft_putnbr_fd(n / 10, fd);
 	tmp = (unsigned char)(n % 10) + '0';
 	write(fd, &tmp, 1);
-}
-
-void my_usleep(suseconds_t time)
-{
-	time_struct tmp1;
-	time_struct tmp2;
-
-	gettimeofday(&tmp1, NULL);
-	gettimeofday(&tmp2, NULL);
-	while (tmp2.tv_sec * 1000000 + tmp2.tv_usec - tmp1.tv_sec * 1000000 - tmp1.tv_usec <= time)
-	{
-		usleep(10);
-		gettimeofday(&tmp2, NULL);
-	}
 }

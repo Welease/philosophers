@@ -5,7 +5,7 @@ time_t get_time()
 	const time_t s_to_ms = 1000000;
 	time_t tmp1;
 	suseconds_t tmp;
-	time_struct tv;
+	t_time_sturct tv;
 	if (gettimeofday(&tv, NULL) == -1)
 		return 0;
 	tmp1 = tv.tv_sec - g_tv.tv_sec;

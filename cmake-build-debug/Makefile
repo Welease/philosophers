@@ -250,6 +250,33 @@ philo_one/parsing.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/parsing.c.s
 .PHONY : philo_one/parsing.c.s
 
+philo_one/philo_funcs.o: philo_one/philo_funcs.c.o
+
+.PHONY : philo_one/philo_funcs.o
+
+# target to build an object file
+philo_one/philo_funcs.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/philo_funcs.c.o
+.PHONY : philo_one/philo_funcs.c.o
+
+philo_one/philo_funcs.i: philo_one/philo_funcs.c.i
+
+.PHONY : philo_one/philo_funcs.i
+
+# target to preprocess a source file
+philo_one/philo_funcs.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/philo_funcs.c.i
+.PHONY : philo_one/philo_funcs.c.i
+
+philo_one/philo_funcs.s: philo_one/philo_funcs.c.s
+
+.PHONY : philo_one/philo_funcs.s
+
+# target to generate assembly for a file
+philo_one/philo_funcs.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/philo_funcs.c.s
+.PHONY : philo_one/philo_funcs.c.s
+
 philo_one/utils.o: philo_one/utils.c.o
 
 .PHONY : philo_one/utils.o
@@ -276,6 +303,33 @@ philo_one/utils.s: philo_one/utils.c.s
 philo_one/utils.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils.c.s
 .PHONY : philo_one/utils.c.s
+
+philo_one/utils2.o: philo_one/utils2.c.o
+
+.PHONY : philo_one/utils2.o
+
+# target to build an object file
+philo_one/utils2.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils2.c.o
+.PHONY : philo_one/utils2.c.o
+
+philo_one/utils2.i: philo_one/utils2.c.i
+
+.PHONY : philo_one/utils2.i
+
+# target to preprocess a source file
+philo_one/utils2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils2.c.i
+.PHONY : philo_one/utils2.c.i
+
+philo_one/utils2.s: philo_one/utils2.c.s
+
+.PHONY : philo_one/utils2.s
+
+# target to generate assembly for a file
+philo_one/utils2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/philo_one/utils2.c.s
+.PHONY : philo_one/utils2.c.s
 
 philo_three/initing.o: philo_three/initing.c.o
 
@@ -513,9 +567,15 @@ help:
 	@echo "... philo_one/parsing.o"
 	@echo "... philo_one/parsing.i"
 	@echo "... philo_one/parsing.s"
+	@echo "... philo_one/philo_funcs.o"
+	@echo "... philo_one/philo_funcs.i"
+	@echo "... philo_one/philo_funcs.s"
 	@echo "... philo_one/utils.o"
 	@echo "... philo_one/utils.i"
 	@echo "... philo_one/utils.s"
+	@echo "... philo_one/utils2.o"
+	@echo "... philo_one/utils2.i"
+	@echo "... philo_one/utils2.s"
 	@echo "... philo_three/initing.o"
 	@echo "... philo_three/initing.i"
 	@echo "... philo_three/initing.s"

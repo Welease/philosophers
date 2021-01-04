@@ -1,4 +1,16 @@
 /private/var/folders/zz/zyxvpxvq6csfxvn_n003vd8w00yv_7/T/AppTranslocation/CF1FD2E2-0342-4896-BF3E-90F9244B2E80/d/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/welease/test/philosophers
 -- Configuring done
--- Generating done
--- Build files have been written to: /Users/welease/test/philosophers/cmake-build-debug
+CMake Error at CMakeLists.txt:8 (add_executable):
+  Cannot find source file:
+
+    philo_one/utils.h
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .m .M .mm .h .hh .h++ .hm
+  .hpp .hxx .in .txx
+
+
+CMake Error at CMakeLists.txt:8 (add_executable):
+  No SOURCES given to target: philosophers
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

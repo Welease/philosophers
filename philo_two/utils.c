@@ -55,8 +55,8 @@ void    ft_putnbr_fd(time_t n, int fd)
 
 void my_usleep(suseconds_t time)
 {
-	time_struct tmp1;
-	time_struct tmp2;
+	t_time_sturct tmp1;
+	t_time_sturct tmp2;
 
 	gettimeofday(&tmp1, NULL);
 	gettimeofday(&tmp2, NULL);

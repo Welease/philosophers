@@ -10,6 +10,14 @@
 philosophers.h
 /Users/welease/test/philosophers/philo_one/philosophers.h
 
+/Users/welease/test/philosophers/philo_one/main.c
+philosophers.h
+/Users/welease/test/philosophers/philo_one/philosophers.h
+
+/Users/welease/test/philosophers/philo_one/parsing.c
+philosophers.h
+/Users/welease/test/philosophers/philo_one/philosophers.h
+
 /Users/welease/test/philosophers/philo_one/philosophers.h
 stdio.h
 -
@@ -24,6 +32,14 @@ sys/time.h
 utils.h
 /Users/welease/test/philosophers/philo_one/utils.h
 limits.h
+-
+
+/Users/welease/test/philosophers/philo_one/utils.c
+utils.h
+/Users/welease/test/philosophers/philo_one/utils.h
+philosophers.h
+/Users/welease/test/philosophers/philo_one/philosophers.h
+time.h
 -
 
 /Users/welease/test/philosophers/philo_one/utils.h

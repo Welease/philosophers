@@ -18,7 +18,7 @@ sem_t *g_tmp_mutex;
 int g_start_flag;
 struct timeval g_tv;
 
-typedef struct timeval time_struct;
+typedef struct timeval t_time_sturct;
 
 typedef struct input {
 	int ph_count;

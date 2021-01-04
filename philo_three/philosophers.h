@@ -7,21 +7,21 @@
 #include <sys/time.h>
 #include "utils.h"
 #include <semaphore.h>
-#include <limits.h> //TODO putnbr sinxronization selfmade usleep
+#include <limits.h>
 #include <sys/types.h>
 #include <signal.h>
 
 sem_t  *g_forks_sem;
 sem_t *g_print_sem;
 sem_t *g_waiter;
-sem_t *g_lifecheck_mutex;
+sem_t *g_lifecheck_sem;
 sem_t *g_print_mutex;
 sem_t *g_tmp_mutex;
 int g_status;
 struct timeval g_tv;
 
 
-typedef struct timeval time_struct;
+typedef struct timeval t_time_sturct;
 
 typedef struct input {
 	int ph_count;
@@ -47,7 +47,7 @@ typedef struct philo
 time_t get_time();
 int pars_argv(char **argv, int flag, t_input_data *input);
 void eating(t_philo *philo);
-int init_threads(t_philo *philo_mass, t_input_data *input_data, pthread_t g_death_thread);
+int init_threads(t_philo *philo_mass, t_input_data *input_data);
 int start(char **argv, int flag, t_input_data *input_data);
 void *simulation_start(t_philo *philo);
 void philo_death(t_philo *philo);
