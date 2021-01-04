@@ -31,9 +31,9 @@ typedef struct philo
 	int num_of_philo;
 	pthread_mutex_t *l_fork;
 	pthread_mutex_t *r_fork;
-	time_t life_time;
 	pthread_t philo_thread;
-	int has_eated;
+	pthread_mutex_t life_check_mutex;
+	time_t eat_time;
 	int eating_counter;
 	t_input_data *input_data;
 }			t_philo;

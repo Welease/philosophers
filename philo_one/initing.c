@@ -36,8 +36,7 @@ void fill_mass_of_philo(t_philo *philo_mass, t_input_data *input_data)
 		philo_mass[i].num_of_philo = i;
 		philo_mass[i].l_fork = &g_forks_mass[fork_index];
 		philo_mass[i].r_fork = &g_forks_mass[i];
-		philo_mass[i].life_time = input_data->t_to_die * 1000;
-		philo_mass[i].has_eated = 0;
+		pthread_mutex_init(&(philo_mass[i].life_check_mutex), NULL);
 		philo_mass[i].eating_counter = 0;
 		philo_mass[i].input_data = get_copy_of_data(input_data);
 		i++;
@@ -55,6 +54,7 @@ void *kill_all(t_philo *mass)
 	{
 		free(mass[i].input_data);
 		pthread_mutex_destroy(&(g_forks_mass[i++]));
+		pthread_mutex_destroy(&(mass[i].life_check_mutex));
 	}
 	free(g_forks_mass);
 	free(mass);
@@ -87,22 +87,26 @@ int check_all_eating(t_philo *mass)
 void *check_deading(t_philo *mass)
 {
 	int i;
-
+	time_t tmp;
+	int ph_counter;
+	tmp = mass[0].input_data->t_to_die;
+	ph_counter = mass[0].input_data->ph_count;
+	while (!g_start_flag)
+		;
 	while (1)
 	{
 		i = 0;
-		while (i < mass[0].input_data->ph_count)
+		while (i < ph_counter)
 		{
-			pthread_mutex_lock(&g_lifecheck_mutex);
-			mass[i].life_time -= 1000;
-			pthread_mutex_unlock(&g_lifecheck_mutex);
+			pthread_mutex_lock(&(mass[i].life_check_mutex));
 			if (check_all_eating(mass))
 				return (kill_all(mass));
-			if ((mass[i].life_time < 0))
+			if (get_time() / 1000 - mass[i].eat_time > tmp)
 			{
 				philo_death(mass + i);
 				return (kill_all(mass));
 			}
+			pthread_mutex_unlock(&(mass[i].life_check_mutex));
 			i++;
 		}
 		my_usleep(1000);

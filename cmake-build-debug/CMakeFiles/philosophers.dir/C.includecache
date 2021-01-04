@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/welease/test/philosophers/philo_one/initing.c
+philosophers.h
+/Users/welease/test/philosophers/philo_one/philosophers.h
+
+/Users/welease/test/philosophers/philo_one/philosophers.h
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+pthread.h
+-
+sys/time.h
+-
+utils.h
+/Users/welease/test/philosophers/philo_one/utils.h
+limits.h
+-
+
+/Users/welease/test/philosophers/philo_one/utils.h
+stdlib.h
+-
+unistd.h
+-
+

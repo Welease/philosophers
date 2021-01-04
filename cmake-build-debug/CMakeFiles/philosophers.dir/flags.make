@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/welease/projects/philosophers/philo_one 
+C_INCLUDES = -I/Users/welease/test/philosophers/philo_one 
 

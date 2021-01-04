@@ -2,6 +2,7 @@
 
 time_t get_time()
 {
+	const time_t s_to_ms = 1000000;
 	time_t tmp1;
 	suseconds_t tmp;
 	time_struct tv;
@@ -11,11 +12,11 @@ time_t get_time()
 	tmp = tv.tv_usec - g_tv.tv_usec;
 	if (tmp < 0)
 	{
-		tmp1 -= 1;
-		tmp += 1000000;
+		tmp1--;
+		tmp += s_to_ms;
 	}
 	if (tmp1 > 0)
-		tmp += tmp1 * 1000000;
+		tmp += tmp1 * s_to_ms;
 	return (tmp);
 }
 
@@ -26,7 +27,8 @@ void print_message(t_philo *philo, char *message)
 	write(1, "    ", 6);
 	ft_putnbr_fd((time_t)(philo->num_of_philo) + 1, 1);
 	write(1, message, ft_strlen(message));
-	sem_post(g_print_sem);
+	if (ft_strncmp(message, " is dead\n", 9))
+		sem_post(g_print_sem);
 }
 
 
@@ -44,7 +46,9 @@ int try_to_take_forks(t_philo *philo)
 void put_forks(t_philo *philo)
 {
 	sem_post(g_forks_sem);
+	usleep(5);
 	sem_post(g_forks_sem);
+	usleep(5);
 }
 
 void philo_death(t_philo *philo)
@@ -67,13 +71,11 @@ void eating(t_philo *philo)
 {
 	try_to_take_forks(philo);
 	print_message(philo, " is eating\n");
-	sem_wait(g_lifecheck_mutex);
-	philo->life_time = philo->input_data->t_to_die * 1000;
-	sem_post(g_lifecheck_mutex);
+	sem_wait(&(philo->life_check_sem));
+	philo->eat_time = get_time() / 1000;
 	my_usleep(philo->input_data->t_to_eat * 1000);
-	sem_wait(g_tmp_mutex);
 	philo->eating_counter++;
-	sem_post(g_tmp_mutex);
+	sem_post(&(philo->life_check_sem));
 	put_forks(philo);
 }
 
@@ -81,6 +83,7 @@ void *simulation_start(t_philo *philo)
 {
 	while (!g_start_flag)
 		;
+	philo->eat_time = get_time() / 1000;
 	pthread_detach(philo->philo_thread);
 	while (1)
 	{

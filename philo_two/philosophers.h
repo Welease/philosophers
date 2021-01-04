@@ -31,11 +31,10 @@ typedef struct input {
 typedef struct philo
 {
 	int num_of_philo;
-	pthread_mutex_t *l_fork;
-	pthread_mutex_t *r_fork;
-	time_t life_time;
 	pthread_t philo_thread;
+	sem_t *life_check_sem;
 	int eating_counter;
+	time_t eat_time;
 	t_input_data *input_data;
 }			t_philo;
 

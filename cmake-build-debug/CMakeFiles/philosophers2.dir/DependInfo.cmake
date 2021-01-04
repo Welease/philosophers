@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/welease/projects/philosophers/philo_two/initing.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/initing.c.o"
-  "/Users/welease/projects/philosophers/philo_two/main.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/main.c.o"
-  "/Users/welease/projects/philosophers/philo_two/parsing.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/parsing.c.o"
-  "/Users/welease/projects/philosophers/philo_two/utils.c" "/Users/welease/projects/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/utils.c.o"
+  "/Users/welease/test/philosophers/philo_two/initing.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/initing.c.o"
+  "/Users/welease/test/philosophers/philo_two/main.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/main.c.o"
+  "/Users/welease/test/philosophers/philo_two/parsing.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/parsing.c.o"
+  "/Users/welease/test/philosophers/philo_two/utils.c" "/Users/welease/test/philosophers/cmake-build-debug/CMakeFiles/philosophers2.dir/philo_two/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

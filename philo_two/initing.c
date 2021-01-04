@@ -13,8 +13,18 @@ t_input_data *get_copy_of_data(t_input_data *input_data)
 	return (tmp);
 }
 
+
+char *generation_of_str(int i)
+{
+	char *tmp;
+
+	tmp = ft_itoa(i);
+	return (tmp);
+}
+
 void fill_mass_of_philo(t_philo *philo_mass, t_input_data *input_data)
 {
+	char *sem_name;
 	int fork_index;
 	int i;
 
@@ -25,8 +35,11 @@ void fill_mass_of_philo(t_philo *philo_mass, t_input_data *input_data)
 		if ((fork_index = i - 1) < 0)
 			fork_index = input_data->ph_count - 1;
 		philo_mass[i].num_of_philo = i;
-		philo_mass[i].life_time = input_data->t_to_die * 1000;
 		philo_mass[i].eating_counter = 0;
+		sem_name = generation_of_str(i + 1);
+		sem_unlink(sem_name);
+		if ((philo_mass[i].life_check_sem = sem_open(sem_name,  O_CREAT | O_TRUNC | O_RDWR, S_IRWXU, 1)) == SEM_FAILED)
+			return;
 		philo_mass[i].input_data = get_copy_of_data(input_data);
 		i++;
 	}
@@ -41,6 +54,7 @@ void *kill_all(t_philo *mass)
 	ph_c = mass[0].input_data->ph_count;
 	while (i < ph_c)
 	{
+		sem_close(mass[i].life_check_sem);
 		free(mass[i].input_data);
 		i++;
 	}
@@ -74,22 +88,26 @@ int check_all_eating(t_philo *mass)
 void *check_deading(t_philo *mass)
 {
 	int i;
-
+	time_t tmp;
+	int ph_counter;
+	tmp = mass[0].input_data->t_to_die;
+	ph_counter = mass[0].input_data->ph_count;
+	while (!g_start_flag)
+		;
 	while (1)
 	{
 		i = 0;
-		while (i < mass[0].input_data->ph_count)
+		while (i < ph_counter)
 		{
-			sem_wait(g_lifecheck_mutex);
-			mass[i].life_time -= 1000;
-			sem_post(g_lifecheck_mutex);
+			sem_wait(mass[i].life_check_sem);
 			if (check_all_eating(mass))
 				return (kill_all(mass));
-			if ((mass[i].life_time < 0))
+			if (get_time() / 1000 - mass[i].eat_time > tmp)
 			{
 				philo_death(mass + i);
 				return (kill_all(mass));
 			}
+			sem_post(mass[i].life_check_sem);
 			i++;
 		}
 		my_usleep(1000);
