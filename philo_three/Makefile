@@ -1,4 +1,4 @@
-NAME = philo_one
+NAME = philo_three
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = utils.c \

@@ -58,7 +58,7 @@ void my_usleep(suseconds_t time);
 char				*ft_itoa(int n);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-void kill_processes(t_philo *mass);
+void kill_processes(t_philo *mass, pid_t ret);
 void print_message(t_philo *philo, char *message, int is_dead);
 int try_to_take_forks(t_philo *philo);
 void put_forks(void);
